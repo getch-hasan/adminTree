@@ -18,25 +18,26 @@ export const Login = () => {
     } = useForm()
 
     const onSubmit = async (data) => {
-        try {
-            setLoading(true)
-            const response = await NetworkServices.Authentication.login(data)
-            if (response.status === 200) {
-                setToken(response.data.data.token);
-                navigate("/dashboard");
-                setLoading(false)
-            }
-        } catch (error) {
-            setLoading(false)
-            networkErrorHandeller(error)
-        }
+        navigate("/dashboard");
+        // try {
+        //     setLoading(true)
+        //     const response = await NetworkServices.Authentication.login(data)
+        //     if (response.status === 200) {
+        //         setToken(response.data.data.token);
+        //         navigate("/dashboard");
+        //         setLoading(false)
+        //     }
+        // } catch (error) {
+        //     setLoading(false)
+        //     networkErrorHandeller(error)
+        // }
     }
 
-    useEffect(() => {
-        if (getToken()) {
-            navigate("/dashboard");
-        }
-    }, [navigate]);
+    // useEffect(() => {
+    //     if (getToken()) {
+    //         navigate("/dashboard");
+    //     }
+    // }, [navigate]);
 
     return (
         <section className="flex items-center justify-center h-screen">
